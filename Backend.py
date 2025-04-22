@@ -4,13 +4,13 @@ import psycopg2
 import pymupdf  # PyMuPDF
 from io import BytesIO
 import ollama
-from Embeddings import retrieve_relevant_laws  # ✅ Use similarity search
+from Embeddings import retrieve_relevant_laws  # Use similarity search
 
 def fetch_pdf_from_db(pdf_name):
     conn = psycopg2.connect(
         dbname="RAG_db_llama",  # 🔁 Same as Embeddings.py
         user="postgres",
-        password="rajcar18",
+        password="password",
         host="localhost",
         port="5432"
     )
@@ -38,7 +38,7 @@ def get_all_pdf_names():
     conn = psycopg2.connect(
         dbname="RAG_db_llama",
         user="postgres",
-        password="rajcar18",
+        password="password",
         host="localhost",
         port="5432"
     )
@@ -50,11 +50,11 @@ def get_all_pdf_names():
     return results
 
 def generate_combined_response(user_query):
-    # ✅ Step 1: Retrieve relevant context via ChromaDB
+    # Step 1: Retrieve relevant context via ChromaDB
     relevant_chunks = retrieve_relevant_laws(user_query)
     combined_context = "\n\n".join(relevant_chunks) if relevant_chunks else ""
 
-    # ✅ Step 2: Weighted Prompt (60% embeddings/context + 40% LLM reasoning)
+    # Step 2: Weighted Prompt (60% embeddings/context + 40% LLM reasoning)
     prompt = f"""
     You are an intelligent legal assistant trained to answer queries using both:
     - Legal context from trusted PDF sources and embeddings (priority: 60%)
