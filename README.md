@@ -48,7 +48,7 @@ Other Utility Libraries : **psycopg2**, **pdfplumber**, **pyMupdf**.
 4.   Clone this Repository :
 
    ```
-   git clone https://github.com/Rajcr2/LegalAdvisor.git
+   git clone https://github.com/RJgit18/LegalAd.git
    ```
 5.   Now, Install all mentioned required libraries in your environment.
 6.   Firstly Store legal documents in PostgreSQL for that run following command.
