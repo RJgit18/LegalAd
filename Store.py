@@ -3,7 +3,7 @@
 import os
 import psycopg2
 
-# 🔽 UPLOAD Function - Handles single and multiple PDFs
+# UPLOAD Function - Handles single and multiple PDFs
 def upload(pdf_input):
     def upload_single(pdf_path):
         pdf_name = os.path.basename(pdf_path).split(".pdf")[0]
@@ -50,7 +50,7 @@ def upload(pdf_input):
         print("❌ Invalid input. Please provide a file path or list of file paths.")
 
 
-# 🔽 Example usage: Modify the paths below or automate via command line args
+# Example usage: Modify the paths below or automate via command line args
 if __name__ == "__main__":
     pdf_files = ["BNSS.pdf"]  # Replace with your file paths
     upload(pdf_files)
