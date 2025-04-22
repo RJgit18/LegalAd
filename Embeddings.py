@@ -29,7 +29,7 @@ def get_pdf_data():
     conn = psycopg2.connect(
         dbname="RAG_db_llama",
         user="postgres",
-        password="rajcar18",
+        password="password",
         host="localhost",
         port="5432"
     )
